@@ -1,0 +1,330 @@
+<div class="container">
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow  p-0 me-5">
+    <a class="navbar-brand" href="#">
+      <img src="images/sniqsys_logo-120x120.png" class="logo mt-5 ms-4 " alt="Logo">
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav ms-auto p-4 p-lg-0">
+        <div class="nav-item dropdown">
+          <a href="index.hbs" class="nav-item nav-link me-5">Home</a>
+        </div>
+        <div class="nav-item dropdown">
+          <a href="about.hbs" class="nav-item nav-link me-5">About</a>
+        </div>
+        <div class="nav-item dropdown">
+          <a href="jobs.hbs" class="nav-link nav-item me-5">Jobs</a>
+
+        </div>
+      
+        <div class="nav-item dropdown">
+          <a href="conatct.hbs" class="nav-item nav-link me-5">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar End -->
+
+
+<!-- Carousel Start -->
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="5000">
+      <img src="img/carousel-1.jpg" class="d-block w-100" alt="...">
+      <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+        style="background: rgba(43, 57, 64, .5);">
+        <div class="container">
+          <div class="row justify-content-start">
+            <div class="col-10 col-lg-8">
+              <h1 class="display-3 text-white animated slideInDown mb-4">Find The Perfect Job That You Deserved</h1>
+              <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit
+                diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
+              <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A Job</a>
+              <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="5000">
+      <img src="img/carousel-2.jpg" class="d-block w-100" alt="...">
+      <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+        style="background: rgba(43, 57, 64, .5);">
+        <div class="container">
+          <div class="row justify-content-start">
+            <div class="col-10 col-lg-8">
+              <h1 class="display-3 text-white animated slideInDown mb-4">Find The Best Startup Job That Fit You</h1>
+              <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit
+                diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
+              <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A Job</a>
+              <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+</div>
+<!-- Carousel End -->
+
+<!-- Jobs Start -->
+<div class="container-xxl py-5">
+  <div class="container">
+    <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Job Listing</h1>
+    <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
+    <!--  <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
+        <li class="nav-item">
+          <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill" href="#tab-1">
+            <h6 class="mt-n1 mb-0">Featured</h6>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-2">
+            <h6 class="mt-n1 mb-0">Full Time</h6>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-3">
+            <h6 class="mt-n1 mb-0">Part Time</h6>
+          </a>
+        </li>
+      </ul>-->
+      <div class="tab-content">
+
+        <div id="tab-1" class="tab-pane fade show p-0 active">
+          {{#each job}}
+          <div class="job-item p-4 mb-4">
+            <div class="row g-4">
+              <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                <img class="flex-shrink-0 img-fluid border rounded" src="images/sniqsys_logo-120x120.png" alt=""
+                  style="width: 80px; height: 80px;">
+
+                <div class="text-start ps-4">
+                  <h5 class="mb-3">{{this.title}}</h5>
+                  <span class="text-truncate me-3"><i
+                      class="fa fa-map-marker-alt text-primary me-2"></i>{{this.place}}</span>
+                  <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{this.time}}</span>
+
+                </div>
+
+              </div>
+              <div
+                class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                <div class="d-flex mb-3">
+                  <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+<!-- Update your HTML with dynamic job IDs in the href attribute -->
+        <button class="btn btn-primary apply-btn" data-job-id="{{this._id}}">apply now</button>
+                </div>
+               
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Jobs End -->
+<!--bottomup btn begins-->
+<button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<!--bottomup btn ends-->
+
+
+<!-- Footer -->
+<footer class="bg-dark text-center text-white mb-0">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!-- Section: Social media -->
+    <section class="mb-0">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
+
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+
+      <!-- Google -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
+
+      <!-- Linkedin -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
+
+      <!-- Github -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Form -->
+    <section class="">
+      <form action="">
+        <!--Grid row-->
+        <div class="row d-flex justify-content-center">
+          <!--Grid column-->
+          <div class="col-auto">
+
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-md-5 col-12">
+            <!-- Email input -->
+            <div class="form-outline form-white mb-4">
+
+            </div>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-auto">
+            <!-- Submit button -->
+
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </form>
+    </section>
+    <!-- Section: Form -->
+
+    <!-- Section: Text -->
+    <section class="mb-0">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
+        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
+        eum harum corrupti dicta, aliquam sequi voluptate quas.
+      </p>
+    </section>
+    <!-- Section: Text -->
+
+    <!-- Section: Links -->
+    <section class="">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-0 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-0 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </section>
+    <!-- Section: Links -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3 mb-0" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2023 Copyright:All rights are reserved by SNIQSYS
+
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+</div>
+
+
+<script>
+// Add an event listener to all elements with the "apply-btn" class
+  document.querySelectorAll('.apply-btn').forEach(button => {
+    button.addEventListener('click', function() {
+      // Get the job ID from the "data-job-id" attribute
+      const jobId = this.getAttribute('data-job-id');
+      
+      // Redirect to the update page with the job ID as a parameter
+      window.location.href = `/apply.hbs/${jobId}`;
+    });
+  });
+
+
+</script>
+
+

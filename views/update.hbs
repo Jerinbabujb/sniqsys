@@ -1,0 +1,65 @@
+<form action="/update.hbs/{{job._id}}" method="post">
+  <div class="mb-md-5 mt-md-4 pb-5">
+
+     <h2 class="fw-bold mb-2 text-uppercase">Update the Job</h2>
+            <p class="text-white-50 mb-5">Please enter the new job details</p>
+    
+            <div class="form-outline form-white mb-4">
+                <textarea id="title" name="title" class="form-control form-control-lg">{{job.title}}</textarea>
+                <label class="form-label">Title</label>
+            </div>
+    
+            <div class="form-outline form-white mb-4">
+                <textarea id="place" name="place" class="form-control form-control-lg">{{job.place}}</textarea>
+                <label class="form-label">Place</label>
+            </div>
+    
+            <div class="form-outline form-white mb-4">
+                <textarea id="time" name="time" class="form-control form-control-lg">{{job.time}}</textarea>
+                <label class="form-label">Time</label>
+            </div>
+    
+            <div class="form-outline form-white mb-4">
+                <textarea id="duration" name="duration" class="form-control form-control-lg">{{job.duration}}</textarea>
+                <label class="form-label">Duration</label>
+            </div>
+    
+            <div class="form-outline form-white mb-4">
+                <textarea id="experience" name="experience" class="form-control form-control-lg">{{job.experience}}</textarea>
+                <label class="form-label">Experience</label>
+            </div>
+    
+            <div class="form-outline form-white mb-4">
+                <textarea id="workhours" name="workhours" class="form-control form-control-lg">{{job.workhours}}</textarea>
+                <label class="form-label">Work Hours</label>
+            </div>
+    
+            <div class="form-outline form-white mb-4">
+                <textarea id="description" name="description" class="form-control form-control-lg">{{job.description}}</textarea>
+                <label class="form-label">Description</label>
+            </div>
+    
+            <div class="form-outline form-white mb-4">
+                <textarea id="responsibilities" name="responsibilities" class="form-control form-control-lg">{{job.responsibilities}}</textarea>
+                <label class="form-label">Responsibilities</label>
+            </div>
+    
+            <div class="form-outline form-white mb-4">
+                <textarea id="qualification" name="qualification" class="form-control form-control-lg">{{job.qualification}}</textarea>
+                <label class="form-label">Qualification</label>
+            </div>
+    
+            <input type="hidden" id="jobId" name="jobId" value="{{job._id}}" />
+    
+            <button class="btn btn-outline-primary btn-lg px-5" type="submit" id="update">Update</button>
+        </div>
+    </form>
+
+// Handle the "Update" button click
+<script>
+  document.querySelector('#update').addEventListener('click', () => {
+    const jobId = "{{job._id}}"; // Get the job ID from your template
+    // Redirect to the update page with the job ID as a parameter
+    window.location.href = `/update.hbs/${jobId}`;
+  });
+</script>

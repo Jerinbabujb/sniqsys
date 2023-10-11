@@ -1,0 +1,83 @@
+<table class="table">
+  <thead>
+    <a href="addjob.hbs">add new job</a>
+    <tr>
+      <th scope="col">no:</th>
+      <th scope="col">title</th>
+      <th scope="col">place</th>
+      <th scope="col">time</th>
+      <th scope="col">duration</th>
+      <th scope="col">experience</th>
+      <th scope="col">workhours</th>
+      <th scope="col">responsibilities</th>
+            <th scope="col">qualification</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {{#each job}}
+    <tr>
+      <th scope="row"></th>
+      <td>{{this.title}}</td>
+      <td>{{this.place}}</td>
+      <td>{{this.time}}</td>
+        <td>{{this.duration}}</td>
+      <td>{{this.experience}}</td>
+      <td>{{this.workhours}}</td>
+      
+        <td>{{this.responsibilities}}</td>
+       
+      <td>{{this.qualification}}</td>
+
+      
+       <td> 
+        <!-- Update button with event listener -->
+        <button class="btn btn-outline update-btn" data-job-id="{{this._id}}">Update</button>
+        <button class="btn btn-outline delete-btn" data-job-id="{{this._id}}">Delete</button>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+<script>
+  // Add an event listener to all elements with the "update-btn" class
+  document.querySelectorAll('.update-btn').forEach(button => {
+    button.addEventListener('click', function() {
+      // Get the job ID from the "data-job-id" attribute
+      const jobId = this.getAttribute('data-job-id');
+      
+      // Redirect to the update page with the job ID as a parameter
+      window.location.href = `/update.hbs/${jobId}`;
+    });
+  });
+
+  // Add an event listener to all elements with the "delete-btn" class
+  document.querySelectorAll('.delete-btn').forEach(button => {
+    button.addEventListener('click', function() {
+      // Get the job ID from the "data-job-id" attribute
+      const jobId = this.getAttribute('data-job-id');
+      
+      // Confirm the delete action with the user
+      if (confirm('Are you sure you want to delete this job?')) {
+        // Send a DELETE request to the server
+        fetch(`/deletejob/${jobId}`, {
+          method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(data => {
+          // Handle the response from the server (e.g., show a message)
+          if (data.message === 'Job deleted successfully') {
+            // Optionally, you can remove the deleted row from the table
+            this.closest('tr').remove();
+          } else {
+            alert('Error deleting job.');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Error deleting job.');
+        });
+      }
+    });
+  });
+</script>
