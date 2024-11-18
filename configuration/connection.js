@@ -5,7 +5,7 @@
 const mongoose = require('mongoose');
 
 // Your MongoDB connection URI
-const mongoURI = "mongodb+srv://jerin:jerinjb@cluster0.xjeefg7.mongodb.net/test";
+const mongoURI = "mongodb+srv://<dbusername>:<dbpassword>@cluster0.xjeefg7.mongodb.net/test";
 
 // Connect to MongoDB
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
